@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Inventaris Barang</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1> Aplikasi Inventaris Barang</h1>
+
+        <div class="form-container">
+            <h2 id="formTitle">Tambah Barang</h2>
+            <form id="itemForm">
+                <input type="hidden" id="itemId">
+                
+                <div class="form-group">
+                    <label for="nama_barang">Nama Barang </label>
+                    <input type="text" id="nama_barang" placeholder="Masukkan nama barang" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="kategori">Kategori</label>
+                        <input type="text" id="kategori" placeholder="Contoh: Elektronik, Furnitur">
+                    </div>
+                    <div class="form-group">
+                        <label for="jumlah">Jumlah</label>
+                        <input type="number" id="jumlah" placeholder="Masukkan jumlah" min="0" value="0">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="kondisi_barang">Kondisi Barang</label>
+                        <select id="kondisi_barang">
+                            <option value="Baik">Baik</option>
+                            <option value="Rusak">Rusak</option>
+                            <option value="Perbaikan">Perbaikan</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="lokasi">Lokasi</label>
+                        <input type="text" id="lokasi" placeholder="Contoh: Ruang(101)">
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-success" id="submitBtn">Tambah Barang</button>
+                <button type="button" class="btn btn-secondary" id="cancelBtn" style="display:none;">Batal</button>
+            </form>
+        </div>
+
+        <div class="table-container">
+            <h2>Daftar Inventaris</h2>
+            <table id="itemTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nama Barang</th>
+                        <th>Kategori</th>
+                        <th>Jumlah</th>
+                        <th>Kondisi</th>
+                        <th>Lokasi</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="itemTableBody">
+                    <tr>
+                        <td colspan="7" style="text-align:center;"> Loading data...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+ 
+<div id="modalStok" class="modal-overlay">
+    <div class="modal-box">
+        <h3 id="modalStokTitle">Tambah Stok</h3>
+        <p id="modalStokInfo" class="modal-info"></p>
+        
+        <div class="form-group">
+            <label for="inputJumlahStok">Jumlah Tambahan</label>
+            <input type="number" id="inputJumlahStok" min="1" placeholder="Contoh: 10" value="1">
+        </div>
+        
+        <div class="modal-actions">
+            <button type="button" class="btn btn-secondary" onclick="tutupModalStok()">Batal</button>
+            <button type="button" class="btn btn-success" onclick="simpanTambahStok()">Simpan</button>
+        </div>
+    </div>
+</div>    
+
+    <script src="script.js"></script>
+</body>
+</html>
